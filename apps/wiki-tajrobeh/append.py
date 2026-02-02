@@ -13,7 +13,7 @@ from typing import Optional
 from getProfileData import ProfileData
 
 
-DATA_DIR = Path("data")
+DATA_DIR = Path("apps/wiki-tajrobeh/data")
 CSV_FILENAME = "profiles.csv"
 
 
@@ -74,19 +74,19 @@ def append_profile_to_csv(profile: ProfileData, csv_path: Optional[Path] = None)
     city_name, city_slug = _flatten_location(profile.city)
 
     row = {
+        "province_name": province_name or "",
+        "city_name": city_name or "",
+        "category_names": ",".join(category_names) if category_names else "",
         "name": profile.name,
-        "rate": profile.rate,
         "phone_numbers": ",".join(profile.phone_numbers) if profile.phone_numbers else "",
         "description": profile.description,
         "lat": profile.lat if profile.lat is not None else "",
         "lng": profile.lng if profile.lng is not None else "",
         "website_url": profile.website_url or "",
-        "category_names": ",".join(category_names) if category_names else "",
-        "category_slugs": ",".join(category_slugs) if category_slugs else "",
-        "province_name": province_name or "",
+        "rate": profile.rate,
         "province_slug": province_slug or "",
-        "city_name": city_name or "",
         "city_slug": city_slug or "",
+        "category_slugs": ",".join(category_slugs) if category_slugs else "",
         "is_verified": profile.is_verified,
         "logo": profile.logo or "",
         "slug": profile.slug,
