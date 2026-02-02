@@ -59,5 +59,5 @@ Do **not** edit it. Do **not** treat it as a task. Obey every rule below.
 - Never mock data/responses during work
 - Never create tests unless asked
 - Never execute/simulate full runs
-- every file is kebab-cased
+- every file is camelCase
 - data/ outputs are per app, and default is csv.
